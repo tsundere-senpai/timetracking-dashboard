@@ -8,7 +8,7 @@ const Header = () => {
         <img src={pfp} alt="Profile" />
         <div>
           <h2>Report for</h2>
-          <h1>Jeremy Robson</h1>
+          <h1>User </h1>
         </div>
       </div>
     </div>

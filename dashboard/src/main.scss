@@ -1,6 +1,51 @@
+html[data-theme="light"] {
+  background-color: hsl(0, 0%, 95%);
+  color: black;
+}
+html[data-theme="dark"] {
+  background-color: hsl(224, 46%, 9%);
+  color: black;
+}
+
+html[data-theme="light"] .header {
+  background-color: hsl(246, 80%, 85%);
+  color: black;
+}
+
+html[data-theme="light"] .nav-box {
+  background-color: hsl(236, 44%, 85%);
+  color: black;
+
+  button {
+    color: black;
+
+    &:hover,
+    &:active {
+      color: hsl(236, 44%, 40%);
+    }
+  }
+}
+
+html[data-theme="light"] .card {
+  .card-top {
+    background-color: hsl(236, 44%, 70%);
+  }
+
+  .card-body {
+    color: black;
+
+    h3 {
+      color: hsl(236, 44%, 30%);
+    }
+
+    span {
+      color: hsl(236, 44%, 50%);
+    }
+  }
+}
+
 body {
   font-family: "Rubik", sans-serif;
-  background-color: hsl(222, 43%, 9%);
   color: white;
   margin: 0;
   padding: 0;
@@ -9,6 +54,78 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+.theme-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease;
+
+    img.theme-toggle-icon {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+
+      &:hover {
+        transform: scale(1.3); /* Slightly larger for hover */
+        filter: brightness(1.2); /* Add a slight glow effect */
+      }
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Subtle background for hover */
+      color: black;
+      transform: scale(1.05); /* Slightly enlarge button for hover */
+    }
+
+    /* Adjust styles for light mode */
+    html[data-theme="light"] & {
+      background-color: transparent;
+      color: black;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    top: 15px;
+    right: 15px;
+
+    .theme-toggle {
+      img.theme-toggle-icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    top: 10px;
+    right: 10px;
+
+    .theme-toggle {
+      img.theme-toggle-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+
 /* Nav Box */
 
 .dashboard {
@@ -86,57 +203,26 @@ body {
     }
    
   }
-  .nav-box {
-    background-color: hsl(236, 44%, 20%);
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    position: relative; /* To position the pseudo-element correctly */
-    /* Adding the upward bend effect using a pseudo-element */
-   
-    position: relative;
- 
-
-    button {
-      background: none;
-      border: none;
-      color: white;
-      opacity: 0.6;
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 10px 20px;
-      width: 100%;
-      text-align: left;
   
-      &:hover {
-        opacity: 1;
-      }
   
-      &:active,
-      &.active {
-        font-weight: bold;
-        text-decoration: underline;
-        opacity: 1;
-      }
-    }
-  }
   
   
   .nav-box {
+    
     background-color: hsl(236, 44%, 20%);
-    padding: 10px;
+    grid-column: 1;
+    width: 100%;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding: 30px;
+    padding-right: 10px;
     display: flex;
     flex-direction: column; /* Buttons stacked vertically */
     justify-content: space-around;
-    align-items: flex-start;
-  
+    border-radius: 0 0 10px 10px;
     button {
       background: none;
       border: none;
-      color: white;
       opacity: 0.6;
       font-size: 1rem;
       cursor: pointer;
@@ -151,7 +237,6 @@ body {
       &:active,
       &.active {
         font-weight: bold;
-        text-decoration: underline;
         opacity: 1;
       }
     }
@@ -159,52 +244,7 @@ body {
   
   
   /* Nav Container */
-  .nav-box {
-    grid-column: 1;
-    width: 100%;
-    max-width: 300px;
-    margin-top: 0px;
-    padding-top: 20px;
-    padding: 30px;
-    padding-right: 10px;
-    background-color: hsl(236, 44%, 20%);
-    align-items: left;
-    nav {
-      display: flex;
-      flex-direction: column;
-      background-color: hsl(236, 44%, 20%);
-      border-radius: 10px;
-      padding: 20px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: left;
-      
-      button {
-        background: none;
-        border: none;
-        color: white;
-        opacity: 0.6;
-        font-size: 1rem;
-        cursor: pointer;
-        align-items: left;
-        padding: 10px 20px;
-        width: 100%;
-        text-align: left;
-
-        &:hover {
-          opacity: 1;
-        }
-
-        &:active,
-        &.active {
-          font-weight: bold;
-          text-decoration: underline;
-          opacity: 1;
-        }
-      }
-    }
-  }
+  
 
   /* Cards Section */
   .cards {
@@ -310,8 +350,103 @@ body {
 
   
 }
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr; /* Single-column layout for small screens */
+    padding: 0 10px; /* Consistent padding */
+  }
 
-/* Responsive Design for tablets and smaller screens */
+  .dashboard .header {
+    grid-column: 1;
+    width: 100%; /* Full width */
+    max-width: none;
+    margin: 0; /* Remove offset */
+    padding: 10px; /* Adjust spacing */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .dashboard .nav-box {
+    grid-column: 1; /* Align nav with header */
+    width: 100%; /* Full width */
+    margin: 0; /* Reset margins */
+    padding: 10px 0; /* Adjust padding */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Align nav buttons horizontally */
+    justify-content: space-around; /* Spread buttons evenly */
+    align-items: center; /* Center buttons vertically */
+    background-color: hsl(236, 44%, 20%); /* Ensure nav visibility */
+    box-sizing: border-box; /* Consistent sizing */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners for a smooth look */
+
+    button {
+      width: auto; /* Auto width for buttons */
+      padding: 10px 15px; /* Adjust padding for spacing */
+      text-align: center;
+      font-size: 1rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1; /* Highlight on hover */
+      }
+
+      &:active,
+      &.active {
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard .header {
+    grid-column: 1;
+    width: 100%; /* Make the header wider */
+    max-width: none; /* Allow full width */
+    height: auto; /* Adjust height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Align items horizontally */
+    align-items: center; /* Vertically center content */
+    padding: 10px 20px;
+     /* Add padding for spacing */
+    /* Adjust Profile Section */
+    .profile {
+      display: flex;
+      flex-direction: row; /* Align profile picture and text horizontally */
+      align-items: center; /* Vertically align items */
+
+      img {
+        width: 70px; /* Slightly smaller image for smaller devices */
+        height: 70px;
+        margin-right: 15px; /* Add spacing to the right of the image */
+      }
+
+      h1, h2 {
+        margin: 0; /* Remove unnecessary margins */
+        text-align: left;
+      }
+
+      h1 {
+        font-size: 1.5rem; /* Adjust size for smaller screens */
+        line-height: 1.2; /* Adjust line spacing */
+      }
+
+      h2 {
+        padding-top: 40px;
+        font-size: 1rem; /* Adjust size for smaller screens */
+        color: hsla(0, 0%, 100%, 0.8); /* Subtle contrast */
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard {
     grid-template-columns: 1fr;
@@ -319,20 +454,21 @@ body {
     /* Header Section */
     .header {
       grid-column: 1;
+     
+     
     }
 
     /* Nav Section */
-    .nav-container {
-      grid-column: 1;
-      nav {
-        display: flex;
-        flex-direction: row; /* Align buttons horizontally */
-        justify-content: center;
-
-        button {
-          padding: 10px;
-          width: auto; /* Remove full width for mobile */
-        }
+    .nav-box {
+      flex-direction: row; /* Align buttons horizontally */
+      justify-content: space-between; /* Adjust spacing between buttons */
+      align-items: center; /* Center buttons vertically */
+      padding: 20px;
+      
+      button {
+        width: auto; /* Allow buttons to size themselves */
+        padding: 10px 15px; /* Add comfortable padding */
+        text-align: center;
       }
     }
 
@@ -343,6 +479,7 @@ body {
     }
   }
 }
+
 
 @media (max-width: 480px) {
   .dashboard .cards {
