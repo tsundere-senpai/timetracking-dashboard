@@ -1,0 +1,351 @@
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: hsl(222, 43%, 9%);
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+/* Nav Box */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: start;
+  justify-items: center;
+  width: 100%;
+  max-width: 1440px;
+  padding: 10px;
+  gap: 50px;
+
+  /* Header Styles */
+  .header {
+    grid-column: 1;
+    position:relative;
+    grid-column: 1;
+    z-index: 2; /* Ensure header is above nav */
+    margin-bottom: -20px; /* Pull header down to overlap nav */
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(246, 80%, 60%);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 100%;
+    max-width: 300px;
+   
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      text-align: left;
+
+      img {
+        width: 80px;
+        height: 80px;
+        border: #ffffff;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+
+      h1, h2 {
+        margin: 1px;
+      }
+
+      h2 {
+        font-size: 1em;
+        text-align: left;
+        font-style: normal;
+        font-weight: 100;
+        font-family: Arial, Helvetica, sans-serif;
+        color: hsla(0, 0%, 100%, 0.651);
+        margin-top: 20px;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        padding-top: -20px;
+        padding-bottom: 50px;
+        font-size: 2.5rem;
+        line-height: auto;
+        font-weight: 300;
+        font-family: Roboto;
+        
+        span {
+          font-weight: 100;
+          font-size: 1.3rem;
+        }
+      }
+    }
+   
+  }
+  .nav-box {
+    background-color: hsl(236, 44%, 20%);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative; /* To position the pseudo-element correctly */
+    /* Adding the upward bend effect using a pseudo-element */
+   
+    position: relative;
+ 
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+      opacity: 0.6;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 10px 20px;
+      width: 100%;
+      text-align: left;
+  
+      &:hover {
+        opacity: 1;
+      }
+  
+      &:active,
+      &.active {
+        font-weight: bold;
+        text-decoration: underline;
+        opacity: 1;
+      }
+    }
+  }
+  
+  
+  .nav-box {
+    background-color: hsl(236, 44%, 20%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Buttons stacked vertically */
+    justify-content: space-around;
+    align-items: flex-start;
+  
+    button {
+      background: none;
+      border: none;
+      color: white;
+      opacity: 0.6;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 10px 0px;
+      width: 100%;
+      text-align: left;
+  
+      &:hover {
+        opacity: 1;
+      }
+  
+      &:active,
+      &.active {
+        font-weight: bold;
+        text-decoration: underline;
+        opacity: 1;
+      }
+    }
+  }
+  
+  
+  /* Nav Container */
+  .nav-box {
+    grid-column: 1;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding: 30px;
+    padding-right: 10px;
+    background-color: hsl(236, 44%, 20%);
+    align-items: left;
+    nav {
+      display: flex;
+      flex-direction: column;
+      background-color: hsl(236, 44%, 20%);
+      border-radius: 10px;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: left;
+      
+      button {
+        background: none;
+        border: none;
+        color: white;
+        opacity: 0.6;
+        font-size: 1rem;
+        cursor: pointer;
+        align-items: left;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &:active,
+        &.active {
+          font-weight: bold;
+          text-decoration: underline;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  /* Cards Section */
+  .cards {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }.card {
+    position: relative; /* To position elements like the button inside */
+    border-radius: 10px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    .card-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px; /* Height of the solid color element */
+      border-radius: 10px 10px 0px 0px; /* Rounded top corners */
+    }
+  
+    .card-body {
+      position: relative;
+      top: 50px;
+      padding: 40px;
+      border-radius: 10px; /* Rounded bottom corners */
+      z-index: 1; /* Ensure the body content stays above the background */
+      text-align: left;
+      transition: filter 0.7s ease;
+      h3 {
+        margin-left: -20px;
+        margin-top: -20px;
+        font-size: 1em;
+        color: #ffffff;
+      }
+  
+      p {
+        margin-left: -20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 3em;
+        font-family: roboto;
+        font-weight: 300;
+      }
+  
+      span {
+        margin-left: -20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 1em;
+        color: #ffffff85;
+      }
+  
+      button {
+        position: absolute; /* Absolute positioning inside the card */
+        top: 10px; /* Distance from the top of the card */
+        right: 10px; /* Distance from the right of the card */
+        padding: 8px 12px;
+        background: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 2; /* Ensure it stays above other elements */
+        transition: box-shadow 0.3s ease, transform 0.3s ease; 
+        img {
+          width: 20px; /* Adjust width of the image inside the button */
+          height: auto;
+          object-fit: cover;
+        }
+  
+        &:hover {
+          transform: scale(1.10);
+        }
+      }
+      &:hover{
+        filter:brightness(1.50);
+      }
+     .card-hidden{
+      margin-top: 10px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition:opacity 0.5s ease,max-height 0.5s ease;
+      visibility: hidden;
+        p{
+          margin:0;
+          font-size: 0.8em;
+        }}
+        &:hover .card-hidden{
+          opacity: 1;
+          max-height: 100px;
+          visibility: visible;
+        
+      } 
+    }
+
+    
+  }
+  
+  
+
+  
+}
+
+/* Responsive Design for tablets and smaller screens */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+
+    /* Header Section */
+    .header {
+      grid-column: 1;
+    }
+
+    /* Nav Section */
+    .nav-container {
+      grid-column: 1;
+      nav {
+        display: flex;
+        flex-direction: row; /* Align buttons horizontally */
+        justify-content: center;
+
+        button {
+          padding: 10px;
+          width: auto; /* Remove full width for mobile */
+        }
+      }
+    }
+
+    /* Cards Section */
+    .cards {
+      grid-column: 1;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard .cards {
+    grid-template-columns: 1fr;
+  }
+}
