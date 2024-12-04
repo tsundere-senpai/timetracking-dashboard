@@ -171,8 +171,13 @@ body {
   width: 100%;
   max-width: 1440px;
   padding: 10px;
+  padding-left: 10px;
   gap: 50px;
-
+  .header, .nav-box {
+    width: 100%; /* Ensures both take up the full width of the parent */
+    box-sizing: border-box; /* Prevents padding/border from affecting width */
+  }
+  
   /* Header Styles */
   .header {
     grid-column: 1;
@@ -185,7 +190,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: hsl(246, 80%, 60%);
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
     color: white;
     width: 100%;
@@ -224,13 +229,16 @@ body {
       h1 {
         margin-bottom: 10px;
         padding-top: -20px;
+        margin-left: -10px;
+        padding-right: 20px;
         padding-bottom: 50px;
-        font-size: 2.5rem;
+        font-size: 3.5em;
         line-height: auto;
         font-weight: 300;
         font-family: Roboto;
         
         span {
+          display: block;
           font-weight: 100;
           font-size: 1.3rem;
         }
@@ -247,13 +255,14 @@ body {
     background-color: hsl(236, 44%, 20%);
     grid-column: 1;
     width: 100%;
+    box-sizing: border-box;
     margin-top: 0px;
+    margin: 0;
     padding-top: 20px;
     padding: 30px;
-    padding-right: 10px;
+    padding-right: 1px;
     display: flex;
     flex-direction: column; /* Buttons stacked vertically */
-    justify-content: space-around;
     border-radius: 0 0 10px 10px;
     button {
       background: none;
@@ -269,6 +278,7 @@ body {
         opacity: 1;
       }
       &:focus{
+        opacity: 1;
         outline: none;
       }
       
@@ -429,6 +439,7 @@ body {
       h1 {
         font-size: 1.5rem; /* Adjust size for smaller screens */
         line-height: 1.2; /* Adjust line spacing */
+        font-weight: 400;
       }
 
       h2 {
@@ -443,7 +454,9 @@ body {
 @media (max-width: 768px) {
   .dashboard {
     grid-template-columns: 1fr;
-
+    margin-right: 30px;
+    right: auto;
+    grid-template: auto;
     /* Header Section */
     .header {
       grid-column: 1;
